@@ -7,12 +7,105 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tV_usrname"
+        android:layout_width="84dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="76dp"
+        android:text="用户名："
+        android:textAlignment="textEnd"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tV_title" />
+
+    <TextView
+        android:id="@+id/tV_passwd"
+        android:layout_width="84dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="密码："
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tV_usrname"
+        app:layout_constraintStart_toStartOf="@+id/tV_usrname"
+        app:layout_constraintTop_toBottomOf="@+id/tV_usrname" />
+
+    <TextView
+        android:id="@+id/tV_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        android:text="东软订餐系统"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/eT_usrname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tV_usrname"
+        app:layout_constraintStart_toEndOf="@+id/tV_usrname"
+        app:layout_constraintTop_toTopOf="@+id/tV_usrname" />
+
+    <EditText
+        android:id="@+id/eT_passwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/tV_passwd"
+        app:layout_constraintStart_toEndOf="@+id/tV_passwd"
+        app:layout_constraintTop_toTopOf="@+id/tV_passwd" />
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="72dp"
+        android:text="登录"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eT_passwd" />
+
+    <Button
+        android:id="@+id/bt_signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="54dp"
+        android:text="注册"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_login" />
 
 </android.support.constraint.ConstraintLayout>
