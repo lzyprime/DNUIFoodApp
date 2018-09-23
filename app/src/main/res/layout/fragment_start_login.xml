@@ -2,110 +2,110 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".fragments.StartLogin">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/tV_usrname"
-        android:layout_width="84dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="76dp"
+        android:id="@+id/tV_usrname2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
         android:text="用户名："
         android:textAlignment="textEnd"
         android:textAllCaps="false"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tV_passwd2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tV_title" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
 
     <TextView
-        android:id="@+id/tV_passwd"
-        android:layout_width="84dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:id="@+id/tV_passwd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="密码："
         android:textAlignment="textEnd"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tV_usrname"
-        app:layout_constraintStart_toStartOf="@+id/tV_usrname"
-        app:layout_constraintTop_toBottomOf="@+id/tV_usrname" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="@+id/tV_usrname2"
+        app:layout_constraintTop_toBottomOf="@+id/tV_usrname2" />
 
     <TextView
-        android:id="@+id/tV_title"
+        android:id="@+id/tV_title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginBottom="8dp"
         android:text="东软订餐系统"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/eT_usrname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/tV_usrname"
-        app:layout_constraintStart_toEndOf="@+id/tV_usrname"
-        app:layout_constraintTop_toTopOf="@+id/tV_usrname" />
+        app:layout_constraintBottom_toBottomOf="@+id/tV_usrname2"
+        app:layout_constraintStart_toEndOf="@+id/tV_usrname2"
+        app:layout_constraintTop_toTopOf="@+id/tV_usrname2"
+        app:layout_constraintVertical_bias="0.344" />
 
     <EditText
         android:id="@+id/eT_passwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/tV_passwd"
-        app:layout_constraintStart_toEndOf="@+id/tV_passwd"
-        app:layout_constraintTop_toTopOf="@+id/tV_passwd" />
+        app:layout_constraintBottom_toBottomOf="@+id/tV_passwd2"
+        app:layout_constraintStart_toStartOf="@+id/eT_usrname"
+        app:layout_constraintTop_toTopOf="@+id/tV_passwd2"
+        app:layout_constraintVertical_bias="0.476" />
 
     <Button
         android:id="@+id/bt_login"
-        android:layout_width="148dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="148dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="8dp"
         android:text="登录"
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eT_passwd" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-    <Button
-        android:id="@+id/bt_signIn"
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="148dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="54dp"
-        android:text="注册"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_login" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="401dp" />
 
 </android.support.constraint.ConstraintLayout>
