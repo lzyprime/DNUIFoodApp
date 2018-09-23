@@ -64,7 +64,7 @@ class StartLogin : Fragment() {
                 {
                    share?.edit()?.putString("usrname",usrname)?.putString("passwd",passwd)?.putString("usrid",s)
                            ?.commit()
-                    startActivity(Intent(this@StartLogin.context,MainActivity::class.java))
+                    startActivity(Intent(this@StartLogin.context, MainActivity::class.java))
                     this@StartLogin.activity?.finish()
                 }
             }
