@@ -8,16 +8,30 @@ import retrofit2.http.*
 
 interface RetrofitInterfaces {
     // url :http://172.24.10.175:8080/foodService/userLogin.do?username=lnn&userpass=11
-    @GET("foodService/userLogin.do")
+    @GET("userLogin.do")
         fun login(@Query("username") username : String,
                   @Query("userpass") userpass : String) : Call<ResponseBody>
 
   // http://172.24.10.175:8080/foodService/userRegister.do?username=lnn&userpass=11&mobilenum=13476543211&address=大连&comment=老师
-    @GET("foodService/userRegister.do")
+    @GET("userRegister.do")
         fun signIn(@Query("username") username: String,
                    @Query("userpass") userpass: String,
                    @Query("mobilenum") mobilenum: String,
                    @Query("address") address: String,
                    @Query("comment") comment : String) : Call<ResponseBody>
 
+    @GET("getAllShops.do")
+        fun getAllShops() : Call<ResponseBody>
+
+    @GET("isCollected.do")
+        fun iscollected(@Query("user_id") user_id : String,
+                        @Query("shop_food_id") shop_food_id : String,
+                        @Query("flag") flag : String) : Call<ResponseBody>
+
+    @GET("userCollectShop.do")
+        fun collectShop(@Query("user_id") userid : String,
+                        @Query("shop_id") shop_id : String) : Call<ResponseBody>
+
+    @GET("getFoodByShop.do")
+        fun getfoodlist(@Query("shop_id") shop_id: String) : Call<ResponseBody>
 }

@@ -41,12 +41,12 @@ class StartSignIn : Fragment() {
                 Toast.makeText(this@StartSignIn.context,"信息填写有误",Toast.LENGTH_SHORT).show()
             else
             {
-                Retrofit.Builder().baseUrl("http://172.24.10.175:8080/").build()
+                Retrofit.Builder().baseUrl("http://172.24.10.175:8080/foodService/").build()
                         .create(RetrofitInterfaces::class.java).signIn(usrname,passwd,phone,addr,comment)
                         .enqueue(object : Callback<ResponseBody>{
                             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                                var s = Gson().fromJson(String(response.body()?.bytes()!!),SignInBean::class.java).seccess
-                                if(s!=null && s.equals("1")) {
+                                var s = Gson().fromJson(String(response.body()?.bytes()!!),SignInBean::class.java)
+                                if(s!=null && s.success.equals("1")) {
                                     Toast.makeText(this@StartSignIn.context,"注册成功",Toast.LENGTH_SHORT).show()
                                     login(usrname,passwd)
                                 }
@@ -62,7 +62,7 @@ class StartSignIn : Fragment() {
         }
     }
     fun login(usrname : String,passwd : String){
-        Retrofit.Builder().baseUrl("http://172.24.10.175:8080/").build()
+        Retrofit.Builder().baseUrl("http://172.24.10.175:8080/foodService/").build()
                 .create<RetrofitInterfaces>(RetrofitInterfaces::class.java).login(usrname,passwd)
                 .enqueue(object : Callback<ResponseBody> {
                     override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {

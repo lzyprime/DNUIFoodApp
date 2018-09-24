@@ -28,14 +28,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mainmenu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        var frags  = listOf(MainPage(),Collection(),Search(),User())
+        var frags = listOf(MainPage(), Collection(), Search(), User())
         mainVP.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(p0: Int): Fragment = frags.get(p0)
             override fun getCount(): Int = frags.size
         }
-        mainVP.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
-            override fun onPageSelected(p0: Int){
-                when(p0){
+        mainVP.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageSelected(p0: Int) {
+                when (p0) {
                     0 -> mainmenu.selectedItemId = R.id.mainpage
                     1 -> mainmenu.selectedItemId = R.id.collection
                     2 -> mainmenu.selectedItemId = R.id.search

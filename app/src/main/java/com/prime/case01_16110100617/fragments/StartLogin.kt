@@ -32,7 +32,7 @@ class StartLogin : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        share = this@StartLogin.activity?.getSharedPreferences("case01_16110100617",Context.MODE_PRIVATE)
+        share = activity?.getSharedPreferences("case01_16110100617",Context.MODE_PRIVATE)
         var usrname = share?.getString("usrname","")!!
         var passwd = share?.getString("passwd","")!!
         if(!usrname.equals("") && !passwd.equals(""))
@@ -48,23 +48,23 @@ class StartLogin : Fragment() {
             if(!usrname.equals("") && !passwd.equals(""))
                 login(usrname,passwd)
             else
-                Toast.makeText(this@StartLogin.context,"用户名密码不能为空",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"用户名密码不能为空",Toast.LENGTH_SHORT).show()
         }
     }
 
     fun login(usrname : String,passwd : String){
-        Retrofit.Builder().baseUrl("http://172.24.10.175:8080/").build()
+        Retrofit.Builder().baseUrl("http://172.24.10.175:8080/foodService/").build()
                 .create<RetrofitInterfaces>(RetrofitInterfaces::class.java).login(usrname,passwd)
                 .enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 var s = Gson().fromJson(String(response.body()?.bytes()!!), LoginBean::class.java).userid
                 if(s.equals("0"))
-                    Toast.makeText(this@StartLogin.context,"用户名或密码错误", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"用户名或密码错误", Toast.LENGTH_SHORT).show()
                 else
                 {
                    share?.edit()?.putString("usrname",usrname)?.putString("passwd",passwd)?.putString("usrid",s)
                            ?.commit()
-                    startActivity(Intent(this@StartLogin.context, MainActivity::class.java))
+                    startActivity(Intent(context, MainActivity::class.java))
                     this@StartLogin.activity?.finish()
                 }
             }

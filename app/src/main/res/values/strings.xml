@@ -1,11 +1,4 @@
 <resources>
-    <string name="app_name">Case01_16110100617</string>
+    <string name="app_name">东软订餐系统</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="base_url">http://172.24.10.175:8080/</string>
 </resources>
