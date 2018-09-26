@@ -32,6 +32,20 @@ interface RetrofitInterfaces {
         fun collectShop(@Query("user_id") userid : String,
                         @Query("shop_id") shop_id : String) : Call<ResponseBody>
 
+    @GET("userCollectFood.do")
+        fun collectFood(@Query("user_id") user_id : String,
+                        @Query("food_id") food_id : String) : Call<ResponseBody>
+
     @GET("getFoodByShop.do")
         fun getfoodlist(@Query("shop_id") shop_id: String) : Call<ResponseBody>
+
+    @GET("getFoodById.do")
+        fun getfoodinfo(@Query("food_id") food_id : String) :Call<ResponseBody>
+
+    @GET("getAllUserFoodOrder.do")
+        fun getcontents(@Query("food_id") food_id : String) : Call<ResponseBody>
+
+    @GET("getAllUserCollection.do")
+        fun getusrcollectionlist(@Query("user_id") user_id: String,
+                                 @Query("flag") flag: String) : Call<ResponseBody>
 }

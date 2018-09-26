@@ -1,10 +1,11 @@
 package com.prime.case01_16110100617
 
+import android.content.Context
 import android.os.Bundle
-import android.app.Activity
-import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
+import android.view.MenuItem
 import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -19,35 +20,39 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class OneShopActivity : Activity() {
+class OneShopActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_one_shop)
-        val shop_id = intent.getStringExtra("shop_id")
-        val usr_id :String = getSharedPreferences("case01_16110100617", Activity.MODE_PRIVATE).getString("usrid", "")
-        tv_shopname.text = intent.getStringExtra("shopname")
-        getCollected(usr_id, shop_id)
-        switchbt_collect.setOnClickListener {
-            Retrofit.Builder().baseUrl("http://172.24.10.175:8080/foodService/").build()
-                    .create(RetrofitInterfaces::class.java).collectShop(usr_id, shop_id)
-                    .enqueue(object : Callback<ResponseBody> {
-                        override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                            var s = Gson().fromJson(String(response.body()?.bytes()!!), SignInBean::class.java)
-                            Toast.makeText(this@OneShopActivity, s.success, Toast.LENGTH_SHORT).show()
-                            if (s == null || s.success.equals("0")) {
-                                Toast.makeText(this@OneShopActivity, "操作失败", Toast.LENGTH_SHORT).show()
-                                switchbt_collect.isChecked = !switchbt_collect.isChecked
-                            }
-                        }
 
-                        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                            Toast.makeText(this@OneShopActivity, "操作失败", Toast.LENGTH_SHORT).show()
-                            switchbt_collect.isChecked = !switchbt_collect.isChecked
-                        }
-                    })
-        }
-        RV_food.layoutManager = GridLayoutManager(this, 1)
+        val shop_id = intent.getStringExtra("shop_id")
+        val usr_id :String = getSharedPreferences("case01_16110100617", Context.MODE_PRIVATE).getString("usrid", "")
+        shop_toolbar.title = intent.getStringExtra("shopname")
+        shop_toolbar.inflateMenu(R.menu.collectmenu)
+        shop_toolbar.setNavigationIcon(R.drawable.ic_leftback)
+        shop_toolbar.setNavigationOnClickListener { finish() }
+        shop_toolbar.setOnMenuItemClickListener(object : Toolbar.OnMenuItemClickListener{
+            override fun onMenuItemClick(p0: MenuItem?): Boolean {
+                Retrofit.Builder().baseUrl("http://172.24.10.175:8080/foodService/").build()
+                        .create(RetrofitInterfaces::class.java).collectShop(usr_id,shop_id)
+                        .enqueue(object : Callback<ResponseBody>{
+                            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                                if(Gson().fromJson(String(response.body()?.bytes()!!),SignInBean::class.java).success.equals("1"))
+                                {
+                                    shop_toolbar.menu.findItem(R.id.item_collected).isVisible = !shop_toolbar.menu.findItem(R.id.item_collected).isVisible
+                                    shop_toolbar.menu.findItem(R.id.item_notcollected).isVisible = !shop_toolbar.menu.findItem(R.id.item_notcollected).isVisible
+                                }
+                            }
+                            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                            }
+                        })
+
+                return true
+            }
+        })
+        getCollected(usr_id, shop_id)
+        RV_food.layoutManager = GridLayoutManager(this@OneShopActivity, 1)
         Retrofit.Builder().baseUrl("http://172.24.10.175:8080/foodService/").build()
                 .create(RetrofitInterfaces::class.java).getfoodlist(shop_id)
                 .enqueue(object : Callback<ResponseBody> {
@@ -67,7 +72,10 @@ class OneShopActivity : Activity() {
                     override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                         var collected = Gson().fromJson(String(response.body()?.bytes()!!), CollectedBean::class.java)
                         if (collected.collected.equals("1"))
-                            switchbt_collect.isChecked = true
+                        {
+                          shop_toolbar.menu.findItem(R.id.item_collected).isVisible = true
+                            shop_toolbar.menu.findItem(R.id.item_notcollected).isVisible = false
+                        }
                     }
 
                     override fun onFailure(call: Call<ResponseBody>, t: Throwable) {

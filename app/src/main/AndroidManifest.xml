@@ -18,11 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ShowActivity" />
-        <activity android:name=".OneShopActivity"
-            android:theme="@style/Animation.AppCompat.DropDownUp"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".OneShopActivity"/>
         <activity android:name=".OneFoodActivity"/>
+        <activity android:name=".ShowActivity" />
     </application>
 
 </manifest>

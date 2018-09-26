@@ -35,13 +35,8 @@ class StartLogin : Fragment() {
         share = activity?.getSharedPreferences("case01_16110100617",Context.MODE_PRIVATE)
         var usrname = share?.getString("usrname","")!!
         var passwd = share?.getString("passwd","")!!
-        if(!usrname.equals("") && !passwd.equals(""))
-            login(usrname,passwd)
-        else
-        {
             eT_usrname.text.append(usrname)
             eT_passwd.text.append(passwd)
-        }
         bt_login.setOnClickListener {
             usrname = eT_usrname.text.toString()
             passwd = eT_passwd.text.toString()
