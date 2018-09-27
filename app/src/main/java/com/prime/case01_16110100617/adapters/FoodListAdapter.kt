@@ -27,11 +27,14 @@ class FoodListAdapter(var foodlist : List<Foodbean>) : RecyclerView.Adapter<Food
             Picasso.get().load("http://172.24.10.175:8080/foodService${show.pic}").into(iv_food)
             setOnClickListener {
                 context.startActivity(Intent(context, OneFoodActivity::class.java)
-                        .putExtra("food_id",show.food_id)
-                        .putExtra("pic",show.pic))
+                        .putExtra("food_id",show.food_id))
             }
         }
     }
 
+    fun setfoodlist(foodlist: List<Foodbean>)
+    {
+        this.foodlist = foodlist
+    }
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

@@ -48,4 +48,8 @@ interface RetrofitInterfaces {
     @GET("getAllUserCollection.do")
         fun getusrcollectionlist(@Query("user_id") user_id: String,
                                  @Query("flag") flag: String) : Call<ResponseBody>
+
+    @GET("getFoodBySearch.do")
+        fun search(@Query("search") search : String) : Call<ResponseBody>
+
 }
