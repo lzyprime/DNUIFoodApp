@@ -13,7 +13,6 @@ import com.google.gson.reflect.TypeToken
 
 import com.prime.case01_16110100617.R
 import com.prime.case01_16110100617.RetrofitInterfaces
-import com.prime.case01_16110100617.ShowActivity
 import com.prime.case01_16110100617.adapters.ShopListAdapter
 import com.prime.case01_16110100617.beans.ShopBean
 import kotlinx.android.synthetic.main.fragment_main_page.*

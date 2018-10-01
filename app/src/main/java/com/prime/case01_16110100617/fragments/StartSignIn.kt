@@ -48,6 +48,8 @@ class StartSignIn : Fragment() {
                                 var s = Gson().fromJson(String(response.body()?.bytes()!!),SignInBean::class.java)
                                 if(s!=null && s.success.equals("1")) {
                                     Toast.makeText(this@StartSignIn.context,"注册成功",Toast.LENGTH_SHORT).show()
+                                    activity?.getSharedPreferences("case01_16110100617",Context.MODE_PRIVATE)?.edit()
+                                            ?.putString("addr",addr)?.putString("phone",phone)?.commit()
                                     login(usrname,passwd)
                                 }
                                 else

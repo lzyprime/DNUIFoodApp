@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addcart"
+        android:icon="@drawable/ic_cart"
+        android:title="加入购物车"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/pay"
+        android:icon="@drawable/ic_pay"
+        android:title="立即购买"
+        app:showAsAction="always|withText" />
+</menu>

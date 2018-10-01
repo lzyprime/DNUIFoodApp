@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/cart_iv_food"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/alipay" />
+
+    <TextView
+        android:id="@+id/cart_tv_foodname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="foodname"
+        app:layout_constraintStart_toEndOf="@+id/cart_iv_food"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cart_tv_shopname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="shopname"
+        app:layout_constraintStart_toEndOf="@+id/cart_iv_food"
+        app:layout_constraintTop_toBottomOf="@+id/cart_tv_foodname" />
+
+    <TextView
+        android:id="@+id/cart_tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="32dp"
+        android:text="price"
+        app:layout_constraintStart_toEndOf="@+id/cart_tv_shopname"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="11dp"
+        android:text="删除"
+        app:layout_constraintStart_toEndOf="@+id/cart_iv_food"
+        app:layout_constraintTop_toBottomOf="@+id/cart_tv_money" />
+
+    <CheckBox
+        android:id="@+id/cart_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="51dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

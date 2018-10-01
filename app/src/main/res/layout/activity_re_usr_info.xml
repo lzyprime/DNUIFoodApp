@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReUsrInfoActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <ImageView
+        android:id="@+id/im_reusrinfo"
+        android:layout_width="72dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="29dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/guideline9"
+        app:srcCompat="@drawable/ic_user" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="117dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="86dp" />
+
+    <EditText
+        android:id="@+id/et_usrname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="用户名"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/et_passwd"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/guideline9" />
+
+    <EditText
+        android:id="@+id/et_passwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="密码"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/et_phone"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/et_usrname" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="phone"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/et_addr"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/et_passwd" />
+
+    <EditText
+        android:id="@+id/et_addr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="地址"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="444dp" />
+
+    <Button
+        android:id="@+id/bt_commit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="提交"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

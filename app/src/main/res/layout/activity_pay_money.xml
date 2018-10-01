@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PayMoneyActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="330dp"
+        android:layout_height="320dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/alipay" />
+
+    <Button
+        android:id="@+id/bt_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="147dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="18dp"
+        android:text="提交订单"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_num"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="数量"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/et_addr"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <EditText
+        android:id="@+id/et_addr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:ems="10"
+        android:hint="地址"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/et_num"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+</android.support.constraint.ConstraintLayout>

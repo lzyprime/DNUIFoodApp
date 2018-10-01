@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/usrallorder"
+        android:title="全部订单"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/usrallcontent"
+        android:title="全部评论"
+        android:visible="true"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/cart"
+        android:title="购物车"
+        app:showAsAction="always" />
+</menu>
