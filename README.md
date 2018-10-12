@@ -4,7 +4,11 @@
 
 ## 博客地址 ： [lzyprime.github.io](https://lzyprime.gitee.io)
 
-> *十方三世，尽在一念*# 我用 $kotlin$ 写 $android$
+> *十方三世，尽在一念*
+
+---
+
+# 我用 $kotlin$ 写 $android$
 
 ## 正题之前先扯扯
 
