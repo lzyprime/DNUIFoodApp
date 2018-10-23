@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">东软订餐系统</string>
+    <string name="hint_usrname">用户名</string>
+    <string name="hint_passwd">密码</string>
+    <string name="hint_phone">手机号</string>
+    <string name="hint_address">地址</string>
+    <string name="hint_comment">备注</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="主页" android:id="@+id/mainpage" android:icon="@drawable/ic_home"/>
+    <item android:title="收藏" android:id="@+id/collected" android:icon="@drawable/ic_collect"/>
+    <item android:title="搜索" android:id="@+id/search" android:icon="@drawable/ic_search"/>
+    <item android:title="用户" android:id="@+id/usr" android:icon="@drawable/ic_usr"/>
+</menu>
