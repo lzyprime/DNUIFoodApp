@@ -15,8 +15,8 @@
             android:id="@+id/et_usrname"
             app:layout_constraintTop_toTopOf="@+id/guideline2"
             app:layout_constraintBottom_toTopOf="@+id/et_passwd" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginTop="8dp" android:hint="@string/hint_usrname"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" android:hint="@string/hint_usrname"
             app:layout_constraintHorizontal_bias="0.503"/>
     <EditText
             android:layout_width="0dp"

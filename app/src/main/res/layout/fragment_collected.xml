@@ -19,11 +19,10 @@
                 android:text="店铺"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/rb_shop" android:layout_weight="1"
-                android:button="@android:color/transparent" android:textSize="24sp"
+                android:button="@android:color/transparent" android:textSize="18sp"
                 android:textColor="@color/colorAccent"/>
         <View
-                android:id="@+id/divider2"
-                android:layout_width="3dp"
+                android:layout_width="15dp"
                 android:layout_height="match_parent"
                 android:background="?android:attr/listDivider"
                 android:layout_weight="1"/>
@@ -31,7 +30,8 @@
                 android:text="食品"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/rb_food" android:layout_weight="1"
-                android:button="@android:color/transparent" android:textAlignment="center" android:textSize="18sp"/>
+                android:button="@android:color/transparent" android:textAlignment="center" android:textSize="18sp"
+                android:textColor="@color/colorAccent"/>
     </RadioGroup>
     <android.support.v7.widget.RecyclerView
             android:layout_width="0dp"

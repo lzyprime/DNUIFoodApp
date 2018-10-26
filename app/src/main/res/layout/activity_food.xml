@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/scrollView">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" app:srcCompat="@mipmap/ic_launcher"
+                    tools:layout_editor_absoluteY="52dp" tools:layout_editor_absoluteX="176dp"
+                    android:id="@+id/iv_foodimage"/>
+            <TextView
+                    android:text="foodname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" tools:layout_editor_absoluteY="335dp"
+                    tools:layout_editor_absoluteX="163dp" android:id="@+id/tv_foodname" android:textAlignment="center"/>
+            <TextView
+                    android:text="foodprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/tv_foodprice" android:textAlignment="center"/>
+            <TextView
+                    android:text="intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/tv_intro" android:textAlignment="center"/>
+            <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                        android:text="推荐！！"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/tv_recommand" android:layout_weight="23"
+                        android:textColor="@color/colorPrimary" android:textAlignment="center" android:textSize="18sp"/>
+                <RadioButton
+                        android:text="加入购物车"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/rb_addcart" android:layout_weight="1"
+                        android:button="@drawable/ic_addcart"
+                        android:background="@android:color/holo_orange_light"/>
+                <RadioButton
+                        android:text="立即购买"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/rb_insertorder"
+                        android:layout_weight="1" android:button="@drawable/ic_insertorder"
+                        android:background="@color/colorAccent"/>
+            </RadioGroup>
+            <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/rv_foodcomment"/>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -5,39 +5,33 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.prime.dnuifood.Beans.LoginBean
-import com.prime.dnuifood.Beans.SuccessBean
-import com.prime.dnuifood.Retrofits.Retrofits
 import kotlinx.android.synthetic.main.activity_register.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
 
 class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        bt_register.setOnClickListener {
+        bt_register.onClick {
             if (usrname != "" && passwd != "" && phone != "" && addr != "" && comment != "")
-                Retrofits.doRegister(usrname, passwd, phone, addr, comment, callback)
+                register()
+            else
+                toast("信息不能为空")
         }
     }
 
-
-    private val callback = object : Callback<SuccessBean> {
-        override fun onResponse(call: Call<SuccessBean>, response: Response<SuccessBean>) {
-            if (response.isSuccessful && response.body()!!.success == "1") {
-                show("注册成功")
+    private fun register() = doAsync {
+        val result = Server.register(usrname,passwd,phone,addr,comment)
+        uiThread {
+            if (result.success == "1") {
                 shareEditor.putString("usrname",usrname).putString("passwd",passwd).commit()
-                finish()
-            }
-            else
-                show("注册失败")
-        }
-
-        override fun onFailure(call: Call<SuccessBean>, t: Throwable) {
-            show("网络出错")
+                toast("注册成功").also { finish() }
+            } else
+                toast("注册失败")
         }
     }
 
@@ -48,8 +42,4 @@ class RegisterActivity : AppCompatActivity() {
     private val phone get() = et_phone.text.toString()
     private val addr get() = et_addr.text.toString()
     private val comment get() = et_comment.text.toString()
-
-    fun show(text: String = "") {
-        Toast.makeText(this@RegisterActivity, text, Activity.MODE_PRIVATE).show()
-    }
 }

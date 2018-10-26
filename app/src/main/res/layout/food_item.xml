@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+>
+
+    <ImageView
+            android:layout_width="145dp"
+            android:layout_height="145dp" app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/iv_foodimage"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"/>
+    <TextView
+            android:text="foodname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_foodname"
+            app:layout_constraintStart_toStartOf="@+id/iv_foodimage"
+            app:layout_constraintEnd_toEndOf="@+id/iv_foodimage" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_foodimage"/>
+    <TextView
+            android:text="food_intro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_intro"
+            app:layout_constraintTop_toBottomOf="@+id/tv_foodname"
+            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="@+id/iv_foodimage"
+            app:layout_constraintEnd_toEndOf="@+id/iv_foodimage"/>
+    <TextView
+            android:text="food_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_intro"
+            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="@+id/tv_intro"
+    />
+    <TextView
+            android:text="推荐！！"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_recommand" app:layout_constraintEnd_toEndOf="@+id/iv_foodimage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_intro"
+            android:textColor="@color/colorAccent" android:layout_marginTop="8dp"/>
+</android.support.constraint.ConstraintLayout>

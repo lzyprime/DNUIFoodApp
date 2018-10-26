@@ -23,8 +23,11 @@
                 android:name=".RegisterActivity"
                 android:label="注册"
                 android:parentActivityName=".LoginActivity"/>
-        <activity android:name=".ShopActivity"
-                  android:parentActivityName=".MainActivity">
+        <activity
+                android:name=".ShopActivity"
+                android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".FoodActivity">
         </activity>
     </application>
 

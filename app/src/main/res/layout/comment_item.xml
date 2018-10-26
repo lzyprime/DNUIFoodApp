@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <TextView
+            android:text="foodname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_comment_foodname" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
+    <TextView
+            android:text="usrname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_comment_usrname" android:layout_marginStart="32dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_comment_foodname" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"/>
+    <TextView
+            android:text="data_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_comment_time"
+            android:layout_marginEnd="32dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
+    <TextView
+            android:text="content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/tv_comment_content" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_comment_foodname"
+            app:layout_constraintEnd_toStartOf="@+id/tv_reset_comment" android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_delete_comment"/>
+    <TextView
+            android:text="修改"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_reset_comment" android:layout_marginEnd="32dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/tv_comment_time"
+            android:visibility="invisible" android:textColor="@color/design_default_color_primary"/>
+    <TextView
+            android:text="删除"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_delete_comment" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_reset_comment" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="32dp" android:visibility="invisible" android:textColor="@color/colorAccent"/>
+</android.support.constraint.ConstraintLayout>
