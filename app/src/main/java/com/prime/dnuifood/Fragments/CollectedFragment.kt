@@ -12,7 +12,6 @@ import com.prime.dnuifood.R
 import com.prime.dnuifood.Server
 import kotlinx.android.synthetic.main.fragment_collected.*
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.uiThread
 
 class CollectedFragment : Fragment(){
@@ -23,8 +22,8 @@ class CollectedFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         rv_collect.layoutManager = GridLayoutManager(context,3)
         getCollectList("0")
-        rb_shop.onClick { getCollectList("0") }
-        rb_food.onClick { getCollectList("1") }
+        rb_shop.setOnClickListener { getCollectList("0") }
+        rb_food.setOnClickListener { getCollectList("1") }
     }
 
     fun getCollectList(flag: String) = doAsync {

@@ -16,7 +16,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        bt_register.onClick {
+        bt_register.setOnClickListener {
             if (usrname != "" && passwd != "" && phone != "" && addr != "" && comment != "")
                 register()
             else

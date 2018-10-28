@@ -24,7 +24,6 @@
         <View
                 android:layout_width="15dp"
                 android:layout_height="match_parent"
-                android:background="?android:attr/listDivider"
                 android:layout_weight="1"/>
         <RadioButton
                 android:text="食品"

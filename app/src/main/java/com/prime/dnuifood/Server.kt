@@ -29,7 +29,12 @@ object Server {
     )
 
     fun collectShop(user_id: String, shop_id: String) = Gson().fromJson(
-        URL(BaseUrl + "userCollectShop.do?user_id=${user_id}&shop_id=1").readText(),
+        URL(BaseUrl + "userCollectShop.do?user_id=${user_id}&shop_id=$shop_id").readText(),
+        SuccessBean::class.java
+    )
+
+    fun collectFood(user_id: String, food_id: String) = Gson().fromJson(
+        URL(BaseUrl + "userCollectShop.do?user_id=${user_id}&food_id=$food_id").readText(),
         SuccessBean::class.java
     )
 
@@ -52,9 +57,13 @@ object Server {
     fun getFoodById(food_id: String) =
         Gson().fromJson(URL(BaseUrl + "getFoodById.do?food_id=${food_id}").readText(), FoodBean::class.java)
 
-    fun insertOrder(user_id: String, food_id: String, num: String, sum: Double, time: String, address: String) =
+    fun insertOrder(user_id: String, food_id: String, num: Int, sum: Double, address: String) =
         Gson().fromJson(
-            URL(BaseUrl + "insertOrder.do?user_id=${user_id}&food_id=${food_id}&num=${num}&sum=${sum}&suggesttime=${time}&address=${address}").readText(),
+            URL(BaseUrl + "insertOrder.do?user_id=${user_id}&food_id=${food_id}&num=${num}&sum=${sum}&suggesttime=now&address=${address}").readText(),
             SuccessBean::class.java
         )
+
+    fun search(content: String) =
+        Gson().fromJson<List<FoodBean>>(URL(BaseUrl + "getFoodBySearch.do?search=$content").readText(),
+            object : TypeToken<List<FoodBean>>() {}.type)
 }

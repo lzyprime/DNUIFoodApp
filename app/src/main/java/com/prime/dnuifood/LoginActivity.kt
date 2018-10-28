@@ -19,13 +19,13 @@ class LoginActivity : AppCompatActivity() {
         et_usrname.setText(share.getString("usrname", ""))
         et_passwd.setText(share.getString("passwd", ""))
 
-        bt_login.onClick {
+        bt_login.setOnClickListener {
             if (usrname == "" || passwd == "")
                 toast("用户名密码不能为空")
             else
                 login()
         }
-        tv_toregister.onClick { startActivity<RegisterActivity>() }
+        tv_toregister.setOnClickListener { startActivity<RegisterActivity>() }
     }
 
     private fun login() = doAsync {
