@@ -6,14 +6,13 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import com.prime.dnuifood.Adapters.CommentListAdaper
 import com.prime.dnuifood.Beans.FoodBean
-import com.prime.dnuifood.Fragments.InsertOrderFragment
+import com.prime.dnuifood.Fragments.AddCartAlert
+import com.prime.dnuifood.Fragments.InsertOrderAlert
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_food.*
 import org.jetbrains.anko.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class FoodActivity : AppCompatActivity() {
 
@@ -25,20 +24,14 @@ class FoodActivity : AppCompatActivity() {
         showfood()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
-        rb_insertorder.setOnClickListener {
-            val alert = InsertOrderFragment()
-            alert.foodBean = food
-            alert.usr_id = usr_id
-            alert.show(supportFragmentManager,"insertorder")
-        }
+        rb_insertorder.setOnClickListener { InsertOrderAlert(this, food, usr_id).create().show() }
+        rb_addcart.setOnClickListener { AddCartAlert(this,usr_id,food_id).create().show() }
     }
 
-
-
     private fun updateCollect() = doAsync {
-        val result = Server.isCollected(usr_id,food_id,"0")
+        val result = Server.isCollected(usr_id, food_id, "0")
         uiThread {
-            if(result.collected == "1")
+            if (result.collected == "1")
                 menu!!.findItem(R.id.isCollected).setIcon(R.drawable.ic_collected)
             else
                 menu!!.findItem(R.id.isCollected).setIcon(R.drawable.ic_notcollected)
@@ -53,14 +46,14 @@ class FoodActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId){
+        when (item?.itemId) {
             R.id.isCollected -> doAsync {
-                    val result = Server.collectFood(usr_id,food_id)
-                    uiThread {
-                        if (result.success == "1")
-                            updateCollect()
-                    }
+                val result = Server.collectFood(usr_id, food_id)
+                uiThread {
+                    if (result.success == "1")
+                        updateCollect()
                 }
+            }
             android.R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
@@ -74,7 +67,7 @@ class FoodActivity : AppCompatActivity() {
     }
 
     fun showfood() = doAsync {
-            food = Server.getFoodById(food_id)
+        food = Server.getFoodById(food_id)
         uiThread {
             Picasso.get().load(Server.BaseUrl + food.pic).into(iv_foodimage)
             tv_foodname.text = food.foodname
@@ -85,8 +78,8 @@ class FoodActivity : AppCompatActivity() {
     }
 
     private val food_id get() = intent.getStringExtra("food_id")
-    private val share get() = getSharedPreferences("DNUIFood",Activity.MODE_PRIVATE)
+    private val share get() = getSharedPreferences("DNUIFood", Activity.MODE_PRIVATE)
     private val usr_id get() = share.getString("usr_id", "")
     private var menu: Menu? = null
-    private lateinit var food : FoodBean
+    private lateinit var food: FoodBean
 }

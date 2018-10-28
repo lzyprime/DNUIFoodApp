@@ -65,5 +65,12 @@ object Server {
 
     fun search(content: String) =
         Gson().fromJson<List<FoodBean>>(URL(BaseUrl + "getFoodBySearch.do?search=$content").readText(),
-            object : TypeToken<List<FoodBean>>() {}.type)
+            object : TypeToken<List<FoodBean>>() {}.type
+        )
+
+    fun addCart(user_id: String, food_id: String, num: Int) = Gson().fromJson(
+        URL(BaseUrl + "addCart.do?user_id=$user_id&food_id=$food_id&num=$num").readText(),
+        SuccessBean::class.java
+    )
+
 }
