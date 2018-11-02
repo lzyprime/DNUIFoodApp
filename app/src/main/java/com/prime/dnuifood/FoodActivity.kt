@@ -26,6 +26,7 @@ class FoodActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
         rb_insertorder.setOnClickListener { InsertOrderAlert(this, food, usr_id).create().show() }
         rb_addcart.setOnClickListener { AddCartAlert(this,usr_id,food_id).create().show() }
+        fabt_shopcar.setOnClickListener { startActivity<ShopCarActivity>() }
     }
 
     private fun updateCollect() = doAsync {
@@ -62,7 +63,7 @@ class FoodActivity : AppCompatActivity() {
     fun commentList() = doAsync {
         val commentlist = Server.getAllCommentsByFood(food_id)
         uiThread {
-            rv_foodcomment.adapter = CommentListAdaper(usr_id, commentlist, food_id)
+            rv_foodcomment.adapter = CommentListAdaper(usr_id, commentlist)
         }
     }
 

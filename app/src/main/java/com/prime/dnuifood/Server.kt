@@ -89,9 +89,28 @@ object Server {
         SuccessBean::class.java
     )
 
-    fun updateUserById(usr_id:String, username: String, userpass: String, mobilenum: String, addrmess: String, comment: String) =
+    fun updateUserById(
+        usr_id: String,
+        username: String,
+        userpass: String,
+        mobilenum: String,
+        addrmess: String
+    ) =
         Gson().fromJson(
-            URL("updateUserById.do?user_id=$usr_id&username=${username}&userpass=${userpass}&mobilenum=${mobilenum}&addrmess=${addrmess}&comment=${comment}").readText(),
+            URL("updateUserById.do?user_id=$usr_id&username=${username}&userpass=${userpass}&mobilenum=${mobilenum}&addrmess=${addrmess}").readText(),
             SuccessBean::class.java
+        )
+
+    fun getUserById(usr_id: String) =
+        Gson().fromJson(URL(BaseUrl + "getUserById.do?user_id=$usr_id").readText(), UsrBean::class.java)
+
+    fun getAllCommentsByUser(usr_id: String) =
+        Gson().fromJson<List<CommentBean>>(URL(BaseUrl + "getAllCommentsByUser.do?user_id=$usr_id").readText(),
+            object : TypeToken<List<CommentBean>>() {}.type
+        )
+
+    fun getAllOrdersByUser(usr_id: String) =
+        Gson().fromJson<List<CommentBean>>(URL(BaseUrl + "getAllOrdersByUser.do?user_id=$usr_id").readText(),
+            object : TypeToken<List<CommentBean>>() {}.type
         )
 }

@@ -11,6 +11,7 @@ import com.prime.dnuifood.Fragments.MainPageFragment
 import com.prime.dnuifood.Fragments.SearchFragment
 import com.prime.dnuifood.Fragments.UsrFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         bnv_main.setOnNavigationItemSelectedListener(bnvlistener)
         vp_main.adapter = vpadapter
         vp_main.addOnPageChangeListener(vplistener)
+        fabt_shopcar.setOnClickListener { startActivity<ShopCarActivity>() }
     }
 
     private val bnvlistener = BottomNavigationView.OnNavigationItemSelectedListener {it ->

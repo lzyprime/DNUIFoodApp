@@ -12,32 +12,30 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
-class CommentAlert(context: Context, item_id: String, content: String = "", flag: Boolean = true) : AlertDialog.Builder(context) {
+class CommentAlert(context: Context, item_id: String, content: String = "", flag: Boolean = false) :
+    AlertDialog.Builder(context) {
 
     init {
         if (flag) setTitle("添加评论") else setTitle("修改评论")
-        val view = View.inflate(context, R.layout.comment_alert,null)
+        val view = View.inflate(context, R.layout.comment_alert, null)
         view.et_content.text.append(content)
         setView(view)
-        setPositiveButton("提交") {_ , _ ->
-                val content = view.et_content.text.toString()
-                if (content != "")
-                    doAsync {
-                        val re : SuccessBean
-                        if (flag)
-                         re = Server.insertComment(item_id, content)
-                        else
-                         re = Server.updateComment(item_id, content)
-                        uiThread {
-                            if (re.success == "1")
+        setPositiveButton("提交") { _, _ ->
+            val content = view.et_content.text.toString()
+            if (content != "")
+                doAsync {
+                    val re =
+                        if (flag) Server.insertComment(item_id, content) else Server.updateComment(item_id, content)
+                    uiThread {
+                        if (re.success == "1")
                             context.toast("评论成功")
-                            else
-                                context.toast("提交失败")
-                        }
+                        else
+                            context.toast("提交失败")
                     }
-                else
-                    context.toast("内容不能为空")
-            }
-        setNegativeButton("取消",null)
+                }
+            else
+                context.toast("内容不能为空")
+        }
+        setNegativeButton("取消", null)
     }
 }

@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.shop_item.view.*
 import org.jetbrains.anko.startActivity
 
-class ShopListAdapter(val shops: List<ShopBean>) : RecyclerView.Adapter<ShopListAdapter.ViewHolder>() {
+class ShopListAdapter(var shops: List<ShopBean>) : RecyclerView.Adapter<ShopListAdapter.ViewHolder>() {
     override fun getItemCount(): Int = shops.size
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder =

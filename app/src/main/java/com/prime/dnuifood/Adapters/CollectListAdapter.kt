@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.collect_item.view.*
 import org.jetbrains.anko.startActivity
 
-class CollectListAdapter(val shows: List<CollectListBean>) : RecyclerView.Adapter<CollectListAdapter.ViewHolder>() {
+class CollectListAdapter(var shows: List<CollectListBean>) : RecyclerView.Adapter<CollectListAdapter.ViewHolder>() {
     override fun getItemCount(): Int = shows.size
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder =

@@ -34,8 +34,7 @@ class LoginActivity : AppCompatActivity() {
             if (result.userid == "0")
                 toast("登录失败")
             else {
-                shareEditor.putString("usr_id", result.userid).putString("usrname", usrname).putString("passwd", passwd)
-                    .commit()
+                shareEditor.putString("usr_id", result.userid).commit()
                 startActivity<MainActivity>()
                 finish()
             }

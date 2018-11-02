@@ -7,6 +7,15 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+    <android.support.design.widget.FloatingActionButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:clickable="true" android:src="@drawable/ic_addcart" android:id="@+id/fabt_shopcar"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_main"/>
     <android.support.design.widget.BottomNavigationView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
