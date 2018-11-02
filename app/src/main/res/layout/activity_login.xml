@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/bt_login" app:layout_constraintStart_toStartOf="@+id/et_passwd"
             app:layout_constraintEnd_toEndOf="@+id/et_passwd" android:layout_marginTop="28dp"
-            app:layout_constraintTop_toTopOf="@+id/guideline" app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintTop_toTopOf="@+id/guideline" app:layout_constraintHorizontal_bias="0.0"
+    />
     <TextView
             android:text="没有账号？注册"
             android:layout_width="wrap_content"
