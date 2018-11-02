@@ -5,7 +5,4 @@
     <string name="hint_phone">手机号</string>
     <string name="hint_address">地址</string>
     <string name="hint_comment">备注</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

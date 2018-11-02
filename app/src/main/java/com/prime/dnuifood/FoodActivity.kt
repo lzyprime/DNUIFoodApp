@@ -62,7 +62,7 @@ class FoodActivity : AppCompatActivity() {
     fun commentList() = doAsync {
         val commentlist = Server.getAllCommentsByFood(food_id)
         uiThread {
-            rv_foodcomment.adapter = CommentListAdaper(usr_id, commentlist)
+            rv_foodcomment.adapter = CommentListAdaper(usr_id, commentlist, food_id)
         }
     }
 

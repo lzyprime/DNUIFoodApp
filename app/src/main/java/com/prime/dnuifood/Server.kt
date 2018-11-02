@@ -64,7 +64,8 @@ object Server {
         )
 
     fun search(content: String) =
-        Gson().fromJson<List<FoodBean>>(URL(BaseUrl + "getFoodBySearch.do?search=$content").readText(),
+        Gson().fromJson<List<FoodBean>>(
+            URL(BaseUrl + "getFoodBySearch.do?search=$content").readText(),
             object : TypeToken<List<FoodBean>>() {}.type
         )
 
@@ -73,4 +74,24 @@ object Server {
         SuccessBean::class.java
     )
 
+    fun insertComment(item_id: String, content: String) = Gson().fromJson(
+        URL(BaseUrl + "insertComment.do?item_id=$item_id&content=$content").readText(),
+        SuccessBean::class.java
+    )
+
+    fun updateComment(item_id: String, content: String) = Gson().fromJson(
+        URL(BaseUrl + "updateComment.do?item_id=$item_id&content=$content").readText(),
+        SuccessBean::class.java
+    )
+
+    fun deleteComment(item_id: String) = Gson().fromJson(
+        URL(BaseUrl + "deleteComment.do?item_id=$item_id").readText(),
+        SuccessBean::class.java
+    )
+
+    fun updateUserById(usr_id:String, username: String, userpass: String, mobilenum: String, addrmess: String, comment: String) =
+        Gson().fromJson(
+            URL("updateUserById.do?user_id=$usr_id&username=${username}&userpass=${userpass}&mobilenum=${mobilenum}&addrmess=${addrmess}&comment=${comment}").readText(),
+            SuccessBean::class.java
+        )
 }

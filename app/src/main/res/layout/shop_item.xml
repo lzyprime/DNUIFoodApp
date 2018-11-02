@@ -16,7 +16,7 @@
             android:text="shopname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_shopname" android:layout_marginStart="32dp"
+            android:id="@+id/tv_shopname" android:layout_marginStart="8dp"
             app:layout_constraintStart_toEndOf="@+id/iv_shopimage" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="16dp"/>
     <RatingBar
@@ -25,7 +25,7 @@
             android:id="@+id/rb_shoplevel"
             style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small" android:numStars="5"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:rating="3.5"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="64dp"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     <TextView
             android:text="店铺地址"
             android:layout_width="wrap_content"
