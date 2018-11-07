@@ -11,14 +11,14 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
-class ResetUsrInfoAlert(context: Context, var usr: UsrBean) : AlertDialog.Builder(context) {
+class ResetUsrInfoAlert(context: Context, var usr: UsrBean, var passwd: String) : AlertDialog.Builder(context) {
     init {
         setTitle("修改用户信息")
         val view = View.inflate(context, R.layout.activity_register,null)
         with(view){
             et_usrname.setText(usr.username)
-            et_passwd.setText(usr.userpass)
-            et_addr.setText(usr.userpass)
+            et_passwd.setText(passwd)
+            et_addr.setText(usr.address)
             et_phone.setText(usr.mobilenum)
             et_comment.visibility = View.INVISIBLE
             bt_register.visibility = View.INVISIBLE

@@ -28,7 +28,7 @@ class AddCartAlert(context: Context, usr_id: String, food_id: String) : AlertDia
         }
         setView(view)
         setNegativeButton("取消", null)
-        setPositiveButton("加入购物车") { dialog, which ->
+        setPositiveButton("加入购物车") { _, _ ->
             doAsync {
                 val re = Server.addCart(usr_id, food_id, num)
                 uiThread {

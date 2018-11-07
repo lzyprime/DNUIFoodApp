@@ -12,7 +12,8 @@
         <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="221dp" app:srcCompat="@mipmap/ic_launcher" android:id="@+id/iv_foodimage"
-                app:layout_scrollFlags="scroll" android:background="@android:color/background_light"/>
+                app:layout_scrollFlags="scroll" android:background="@android:color/background_light"
+                android:scaleType="centerCrop"/>
         <TextView
                 android:text="TextView"
                 android:layout_width="match_parent"

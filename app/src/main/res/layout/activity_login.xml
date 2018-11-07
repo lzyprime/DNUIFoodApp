@@ -30,10 +30,10 @@
             app:layout_constraintEnd_toEndOf="@+id/et_usrname" android:hint="@string/hint_passwd"
             app:layout_constraintHorizontal_bias="0.0"/>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                          android:id="@+id/guideline" app:layout_constraintGuide_begin="266dp"
+                                          android:id="@+id/guideline" app:layout_constraintGuide_begin="319dp"
                                           android:orientation="horizontal"/>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                          android:id="@+id/guideline2" app:layout_constraintGuide_begin="77dp"
+                                          android:id="@+id/guideline2" app:layout_constraintGuide_begin="87dp"
                                           android:orientation="horizontal"/>
     <Button
             android:text="登录"

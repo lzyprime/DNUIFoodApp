@@ -105,12 +105,26 @@ object Server {
         Gson().fromJson(URL(BaseUrl + "getUserById.do?user_id=$usr_id").readText(), UsrBean::class.java)
 
     fun getAllCommentsByUser(usr_id: String) =
-        Gson().fromJson<List<CommentBean>>(URL(BaseUrl + "getAllCommentsByUser.do?user_id=$usr_id").readText(),
+        Gson().fromJson<List<CommentBean>>(
+            URL(BaseUrl + "getAllCommentsByUser.do?user_id=$usr_id").readText(),
             object : TypeToken<List<CommentBean>>() {}.type
         )
 
     fun getAllOrdersByUser(usr_id: String) =
-        Gson().fromJson<List<CommentBean>>(URL(BaseUrl + "getAllOrdersByUser.do?user_id=$usr_id").readText(),
+        Gson().fromJson<List<CommentBean>>(
+            URL(BaseUrl + "getAllOrdersByUser.do?user_id=$usr_id").readText(),
             object : TypeToken<List<CommentBean>>() {}.type
         )
+
+    fun deleteCartItem(item_id: String) =
+        Gson().fromJson(URL(BaseUrl + "deleteCartItem.do?item_id=$item_id").readText(), SuccessBean::class.java)
+
+    fun getMyCartByUser(usr_id: String) =
+        Gson().fromJson<List<CarListBean>>(
+            URL(BaseUrl + "getMyCartByUser.do?user_id=$usr_id").readText(),
+            object : TypeToken<List<CarListBean>>() {}.type
+        )
+
+    fun getItemsFromCart(usr_id: String, addr: String,sum: Double,items: String) =
+        Gson().fromJson(URL(BaseUrl + "insertOrder2.do?user_id=$usr_id&address=$addr&sum=$sum&suggesttime=now&items=$items").readText(), SuccessBean::class.java)
 }

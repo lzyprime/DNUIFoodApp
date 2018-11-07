@@ -38,12 +38,14 @@ class CommentListAdaper(val usr_id: String, var comments: List<CommentBean>, val
                 tv_comment_content.text = comment.shopname
             if (comment.user_id == usr_id) {
                 tv_reset_comment.visibility = View.VISIBLE
-                if (flag == 1) { tv_reset_comment.text = "添加评论" }
+                if (flag == 1) {
+                    tv_reset_comment.text = "添加评论"
+                }
                 tv_reset_comment.setOnClickListener {
                     if (flag == 1)
-                    CommentAlert(context, comment.item_id, comment.content, true).create().show()
+                        CommentAlert(context, comment.item_id).create().show()
                     else
-                        CommentAlert(context,comment.item_id,"").create().show()
+                        CommentAlert(context, comment.item_id, comment.content, true).create().show()
                     when (flag) {
                         0 -> foodcommentList(comment.food_id)
                         1 -> usrorgerList()
