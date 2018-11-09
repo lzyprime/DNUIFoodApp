@@ -58,9 +58,13 @@ class CommentListAdaper(val usr_id: String, var comments: List<CommentBean>, val
                         context.alert {
                             title = "删除评论"
                             positiveButton("确认") {
-                                Server.deleteComment(comment.item_id)
-                                if (flag == 0) foodcommentList(comment.food_id)
-                                else usrcommentList()
+                                doAsync {
+                                    Server.deleteComment(comment.item_id)
+                                    uiThread {
+                                        if (flag == 0) foodcommentList(comment.food_id)
+                                        else usrcommentList()
+                                    }
+                                }
                             }
                             negativeButton("取消") {}
                         }.show()

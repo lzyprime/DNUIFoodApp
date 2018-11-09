@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.support.annotation.MenuRes
 import android.support.v7.widget.GridLayoutManager
 import android.text.Editable
+import android.text.Layout
 import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.prime.dnuifood.Adapters.CarListAdapter
@@ -61,13 +63,13 @@ class ShopCarActivity : AppCompatActivity() {
                     title = "确认订单"
                     var a = ""
                     customView {
-                        linearLayout {
-                            textView("总金额：￥$sum")
+                        verticalLayout {
+                            textView("总金额：￥$sum").textAlignment = View.TEXT_ALIGNMENT_CENTER
                             editText {
                                 hint = "收货地址"
                                 addTextChangedListener(object : TextWatcher {
                                     override fun afterTextChanged(s: Editable?) {
-                                        a = s?.toString()?: ""
+                                        a = s?.toString() ?: ""
                                     }
 
                                     override fun beforeTextChanged(
@@ -83,7 +85,25 @@ class ShopCarActivity : AppCompatActivity() {
                             }
                         }
                     }
-                    okButton { toast(a) }
+                    okButton {
+                        if (a != "") {
+                            var items = ""
+                            for (i in rvadapter.carts)
+                                if (i.ischecked)
+                                    items += if (items == "") "${i.item_id}" else ",${i.item_id}"
+                            toast(items)
+                            doAsync {
+                                val re = Server.insertOrderByCart(usr_id, a, sum, items)
+                                uiThread {
+                                    if (re.success != "0") {
+                                        rvadapter.carts.removeIf { it.ischecked }
+                                        rvadapter.notifyDataSetChanged()
+                                    } else
+                                        toast("购买失败")
+                                }
+                            }
+                        }
+                    }
                     cancelButton { it.dismiss() }
                 }.show()
             }

@@ -13,16 +13,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="140dp" android:id="@+id/iv_usrimage"
                 android:background="@android:color/background_light" app:layout_scrollFlags="scroll"
-                android:scaleType="center"/>
+                app:srcCompat="@android:drawable/sym_def_app_icon"/>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/usrinfobar" app:layout_scrollFlags="scroll"
+                android:layout_height="match_parent"
+                android:id="@+id/usrinfobar"
+                app:layout_scrollFlags="scroll"
                 android:background="@android:color/background_light">
             <TextView
                     android:text="usrname"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/tv_usrname" android:textAlignment="center"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_usrname"
+                    android:textAlignment="center"
                     android:textAllCaps="false"/>
             <TextView
                     android:text="phone"

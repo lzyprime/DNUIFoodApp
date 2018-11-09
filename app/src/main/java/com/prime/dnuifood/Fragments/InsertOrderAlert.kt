@@ -36,7 +36,7 @@ class InsertOrderAlert(context: Context,food : FoodBean,usr_id : String) : Alert
             }
         }
         setView(view)
-        setPositiveButton("确认") { dialogInterface: DialogInterface, i: Int ->
+        setPositiveButton("确认") { _, _ ->
             val addr = view.et_addr.text.toString()
             if (addr != "")
                 doAsync {

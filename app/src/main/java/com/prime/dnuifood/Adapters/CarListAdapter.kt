@@ -46,6 +46,7 @@ class CarListAdapter(var carts: MutableList<CarListBean>, val usr_id: String, va
 
             tv_shopname.text = onecar.shopname
             cb_cart.visibility = if (showcb) View.VISIBLE else View.INVISIBLE
+            tv_delete.visibility = cb_cart.visibility
             cb_cart.isChecked = onecar.ischecked
             cb_cart.setOnClickListener {
                 carts[p1].ischecked = cb_cart.isChecked
